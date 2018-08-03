@@ -4,6 +4,9 @@ const app = express();
 //route handler
 app.get('/', (req, res) => {
   res.send({hi: 'there'});
-}); 
+});
 
-app.listen(5000);
+//Dynamically binding the port for deployment on heroku
+//default port on development environment = localhost:5000
+const PORT = process.env.PORT || 5000;
+app.listen(PORT);
